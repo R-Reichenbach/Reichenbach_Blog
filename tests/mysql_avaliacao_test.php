@@ -1,55 +1,46 @@
 <?php
-require_once '../includes/funcoes.php';
-require_once '../core/conexao_mysql.php';
-require_once '../core/sql.php';
-require_once '../core/mysql.php';
+    require_once '../includes/funcoes.php';
+    require_once '../core/conexao_mysql.php';
+    require_once '../core/sql.php';
+    require_once '../core/mysql.php';
 
-// Example data
-$nota = 5;
-$comentario = 'Good';
-$usuario_id = 1;
-$post_id = 2;
-$data_criacao = '2023-08-15';
+    insert_teste(10, 'muito bom', 1, 2, date('Y-m-d H:i:s'));
+    insert_teste(10, 'pessimo', 2, 1, date('Y-m-d H:i:s'));
+    insert_teste(10, 'pessimo', 2, 1, date('Y-m-d H:i:s'));
+    buscar_teste();
+    update_teste(1, 8, 'bom', 1, 1, date('Y-m-d H:i:s'));
+    deleta_teste(1);
+    buscar_teste();
 
-insert_avaliacao($nota, $comentario, $usuario_id, $post_id, $data_criacao);
-update_avaliacao();
-delete_avaliacao(1, 'Deleted', 'Rafael', 'r.reichenbach@aluno.ifsp.edu.br', 'ratin1234', '2023-08-15');
-busca_avaliacao();
+    function insert_teste($nota, $comentario, $usuario_id, $post_id, $data_criacao) : void
+    {
+        $dados = ['nota' => $nota
+                , 'comentario' => $comentario
+                , 'usuario_id' => $usuario_id
+                , 'post_id' => $post_id
+                , 'data_criacao' => $data_criacao];
+        insere('avaliacao', $dados);
+    }
 
-//Teste inserção banco de dados
-function insert_avaliacao($nota, $comentario, $usuario_id, $post_id, $data_criacao): void{
-    $dados = [
-        'nota' => $nota,
-        'comentario' => $comentario,
-        'usuario_id' => $usuario_id,
-        'post_id' => $post_id,
-        'data_criacao' => $data_criacao
-    ]; 
-    insere('avaliacao', $dados); // Assuming 'avaliacao' is the correct table name
-}
+    function buscar_teste() : void
+    {
+        $avaliacoes = buscar('avaliacao', ['id', 'nota', 'comentario', 'usuario_id', 'post_id', 'data_criacao'], [],'');
+        print_r($avaliacoes);
+    }
 
-//Teste select banco de dados
-function update_avaliacao(): void{
-    $avaliacoes = buscar('avaliacao', ['id', 'nota', 'comentario', 'usuario_id', 'post_id', 'data_criacao'], [], '');
-    print_r($avaliacoes);
-}
-
-//Teste delete banco de dados
-function delete_avaliacao($id, $nota, $comentario, $usuario_id, $post_id, $data_criacao): void{
-    $dados = [
-        'nota' => $nota,
-        'comentario' => $comentario,
-        'usuario_id' => $usuario_id,
-        'post_id' => $post_id,
-        'data_criacao' => $data_criacao
-    ]; 
-    $criterio = [['id', '=', $id]];
-    deleta('avaliacao', $dados, $criterio); // Assuming 'avaliacao' is the correct table name
-}
-
-//Teste busca banco de dados
-function busca_avaliacao(): void{
-    $avaliacoes = buscar('avaliacao', ['id', 'nota', 'comentario', 'usuario_id', 'post_id', 'data_criacao'], [], '');
-    print_r($avaliacoes);
-}
+    function update_teste($id, $nota, $comentario, $usuario_id, $post_id, $data_criacao) : void
+    {
+        $dados = ['nota' => $nota
+                , 'comentario' => $comentario
+                , 'usuario_id' => $usuario_id
+                , 'post_id' => $post_id
+                , 'data_criacao' => $data_criacao];
+        $criterio = [['id', '=', $id]];
+        atualiza('avaliacao', $dados, $criterio);
+    }
+    function deleta_teste($id) : void
+    {
+        $criterio = [['id', '=', $id]];
+        deleta('avaliacao', $criterio);
+    }
 ?>
