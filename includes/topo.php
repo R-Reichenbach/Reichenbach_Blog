@@ -4,7 +4,7 @@ session_start();
 
 <div class="card">
  <div class="card-header">
-<hl> Projeto Blog em PHP + MySQL IFSP - RAFAEL REICHENBACH</hl>
+<hl> Projeto Blog em PHP + MySQL IFSP - Rafael Reichenbach Gomes</hl>
 
  </div>
 <?php if(isset($_SESSION['login'])): ?>
