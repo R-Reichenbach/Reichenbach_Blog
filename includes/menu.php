@@ -10,15 +10,15 @@
 </li>
 <li class="nav-item">
 
-<a class="nav-link" href="usuario formulario.php">Cadastre-se</a>
+<a class="nav-link" href="usuario_formulario.php">Cadastre-se</a>
 </li>
 <li class="nav-item">
 
-<a class="nav-link" href="login formulario.php">Login</a>
+<a class="nav-link" href="login_formulario.php">Login</a>
 </li>
 <li class="nav-item">
 
-<a class="nav-link" href="post formulario.php">Incluir Post</a>
+<a class="nav-link" href="post_formulario.php">Incluir Post</a>
 </li>
 <?php if ((isset($_SESSION['login']))
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html> 
     <head>
-    <title>Página inicial | Projeto para Web com PHP</title>
+    <title>Initial Page | Project WEB using PHP</title>
     <link rel="stylesheet"
       href="lib/bootstrap-4.2.1-dist/css/bootstrap.min.css">
     </head>
@@ -78,17 +78,21 @@
     <div>
     <div class="list-group">
     <?php
-    foreach($posts as $post):
-    $data = date_create ($post['data_postagem']);
-    $data = date_format($data, 'd/m/Y H:i:s');
+        foreach($posts as $post):
+        $data = date_create ($post['data_postagem']);
+        $data = date_format($data, 'd/m/Y H:i:s');
     ?>
     <a class="list-group-item list-group-item-action"
-    href="post_detalhe.php?post=<?php echo $post['id']?>">
-    <strong><?php echo $post['titulo']?></strong>
+        href="post_detalhe.php?post=<?php echo $post['id']?>">
+    <strong>
+        <?php echo $post['titulo']?>
+    </strong>
     [<?php echo $post['nome']?>]
     <span class="badge badge-dark"><?php echo $data?></span>
     </a>
-    <?php endforeach; ?>
+    <?php
+     endforeach; 
+    ?>
     </div>
     </div>
     </div>
