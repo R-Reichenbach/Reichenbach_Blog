@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users | Project WEB using PHP</title>
+    <title>Usuários | Projeto para Web com PHP</title>
     <link rel="stylesheet" href="lib/bootstrap-4.2.1-dist/css/bootstrap.min.css">
 
 </head>
@@ -79,14 +79,14 @@
                             <td><?php echo $entidade['email'] ?></td>
                             <td><?php echo $data ?></td>
                             <td><a href='core/usuario_repositorio.php?acao=status&id=<?php echo $entidade['id']?>&valor=<?php echo !$entidade['ativo']?>'><?php echo($entidade['ativo']==1) ? 'Desativar' : 'Ativar'; ?></a></td>
-                            <td><a href='core/usuario_repositorio.php?acao=adm$id=<?php echo $entidade['id']?>&valor=<?php echo !$entidade['adm']?>'><?php echo ($entidade['adm']==1) ? 'Rebaixar' : 'Promover'; ?></a></td>
+                            <td><a href='core/usuario_repositorio.php?acao=adm&id=<?php echo $entidade['id']?>&valor=<?php echo !$entidade['adm']?>'><?php echo ($entidade['adm']==1) ? 'Rebaixar' : 'Promover'; ?></a></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="row" style="width: 100%;">
+        <div class="row">
             <div class="col-md-12">
                 <?php 
                     include 'includes/rodape.php';
