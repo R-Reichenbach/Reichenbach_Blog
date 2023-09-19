@@ -86,7 +86,7 @@
                 </table>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="width: 100%;">
             <div class="col-md-12">
                 <?php 
                     include 'includes/rodape.php';

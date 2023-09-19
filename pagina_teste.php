@@ -24,7 +24,7 @@ include 'includes/topo.php';
 <h2>Pagina teste includes</h2>
  </div>
  </div>
- <div class="row">
+ <div class="row" style="width: 100%;">
      <div class="col-md-12">
      <?php
 include 'includes/rodape.php';
